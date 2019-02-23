@@ -7,7 +7,7 @@ import { Oferta } from '../shared/ofertas.model';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [ OfertasService ]
+  providers: [OfertasService]
 })
 export class HomeComponent implements OnInit {
 
@@ -17,8 +17,18 @@ export class HomeComponent implements OnInit {
   constructor(private ofertasService: OfertasService) { }
 
   ngOnInit() {
-    this.ofertas = this.ofertasService.getOfertas()
-    console.log(this.ofertas)
+    /* .then() --> Executa métodos de tratamento da realização e rejeição da promessa
+     .catch() --> Adiciona um callback que trata rejeição*/
+
+    this.ofertasService.getOfertas2()
+      .then((ofertas: Oferta[]) => {
+        console.log("A função resolve() foi resolvida depois de 3 segundos ")
+        this.ofertas = ofertas
+      }) //Executa uma ação quando a promessa for resolvida
+      
+      .catch((param: any) => {
+        console.log(param)
+      }) 
   }
 
 }
