@@ -1,6 +1,10 @@
+import { Http } from '@angular/http';
+import { Injectable } from '@angular/core';
 import { Oferta } from './shared/ofertas.model';
 
+@Injectable() //Usado para decorar a classe OfertaService
 export class OfertasService {
+    constructor(private http: Http) {}
 
     public ofertas: Oferta[] = 
         [
