@@ -20,15 +20,14 @@ export class HomeComponent implements OnInit {
     /* .then() --> Executa métodos de tratamento da realização e rejeição da promessa
      .catch() --> Adiciona um callback que trata rejeição*/
 
-    this.ofertasService.getOfertas2()
+    this.ofertasService.getOfertas()
       .then((ofertas: Oferta[]) => {
-        console.log("A função resolve() foi resolvida depois de 3 segundos ")
         this.ofertas = ofertas
       }) //Executa uma ação quando a promessa for resolvida
-      
+
       .catch((param: any) => {
         console.log(param)
-      }) 
+      })
   }
 
 }
