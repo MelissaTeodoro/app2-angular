@@ -11,7 +11,7 @@ export class OfertasService {
 
     public getOfertas(): Promise<Oferta[]> {
         //requisição http que retorna uma promessa com Oferta[]
-        return this.http.get('http://localhost:3000/ofertas') //Esse verbo vai retornar um observable, porém vou converter para promise no momento
+        return this.http.get('http://localhost:3000/ofertas?destaque=true') //Esse verbo vai retornar um observable, porém vou converter para promise no momento
             .toPromise()
             .then((resposta:any) => resposta.json()) //retorna um objeto literal
     }     
