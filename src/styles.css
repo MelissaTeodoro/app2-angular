@@ -14,6 +14,10 @@ h3 {
     height: 200px;
 }
 
+.card-block {
+    padding: 25px;
+}
+
 .secao {
     margin-top: 30px;
     margin-bottom: 30px

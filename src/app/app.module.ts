@@ -21,9 +21,8 @@ import { RestaurantesComponent } from './restaurantes/restaurantes.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpModule
-
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
