@@ -14,5 +14,11 @@ export class OfertasService {
         return this.http.get('http://localhost:3000/ofertas?destaque=true') //Esse verbo vai retornar um observable, porém vou converter para promise no momento
             .toPromise()
             .then((resposta:any) => resposta.json()) //retorna um objeto literal
-    }     
+    }
+
+    public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
+        return this.http.get(`http://localhost:3000/ofertas?categoria=${categoria}`)
+        .toPromise()
+        .then((resposta: any) => resposta.json())
+    }
 }
