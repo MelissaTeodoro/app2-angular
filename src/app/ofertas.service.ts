@@ -35,7 +35,6 @@ export class OfertasService {
         return this.http.get(`${URL_API}/como-usar?id=${id}`)
         .toPromise()
         .then((resposta: any) => {
-            console.log(resposta.json()[0].descricao)
             return resposta.json()[0].descricao
         })
     }
@@ -44,7 +43,6 @@ export class OfertasService {
         return this.http.get(`${URL_API}/onde-fica?id=${id}`)
         .toPromise()
         .then((resposta: any) => {
-            console.log(resposta.json()[0].descricao)
             return resposta.json()[0].descricao
         })
     }
