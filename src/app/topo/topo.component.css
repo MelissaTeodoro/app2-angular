@@ -26,3 +26,18 @@
 .active {
     color: #FFF 
 }
+
+#align-input, #align-img {
+    height: 45px;
+    position: relative;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%)   
+}
+
+#align-img {
+    width: 50px;
+}
+
+#align-nav {
+    width: 1302px;
+}
