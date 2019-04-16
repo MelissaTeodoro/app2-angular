@@ -8,7 +8,10 @@
           </a>
         </div>
         <div class="col-md-6">
-          <input id="align-input" type="text" class="form-control alignColum" placeholder="Pesquise por ofertas..."/>
+          <input id="align-input" type="text" class="form-control alignColum" 
+          #termoDaPesquisa
+          (keyup)="pesquisa(termoDaPesquisa.value)"
+          placeholder="Pesquise por ofertas..."/>
         </div>
         <div class="col-md-2">
           <a a href="#"><img id="align-img" src="../assets/carrinho.png" /></a>
