@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
       }) //Executa uma ação quando a promessa for resolvida
 
       .catch((param: any) => {
-        console.log(param)
       })
   }
 

@@ -2,7 +2,10 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Oferta } from './shared/ofertas.model';
 import { URL_API } from './app.api';
-//import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/retry';
 
 @Injectable() //Usado para decorar a classe OfertaService
 export class OfertasService {
@@ -45,5 +48,11 @@ export class OfertasService {
         .then((resposta: any) => {
             return resposta.json()[0].descricao
         })
+    }
+
+    public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+        return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`) //_like = Pesquisa por aproximação
+        .retry(10) //Quantidade de tentativas após falhas
+        .map((resposta: any)=> resposta.json()) //Método que transforma os valores para cada evento, gerando um novo Observable
     }
 }
