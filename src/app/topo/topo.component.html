@@ -8,10 +8,11 @@
           </a>
         </div>
         <div class="col-md-6">
-          <input id="align-input" type="text" class="form-control alignColum" 
-          #termoDaPesquisa
-          (keyup)="pesquisa(termoDaPesquisa.value)"
-          placeholder="Pesquise por ofertas..."/>
+          <input id="align-input" type="text" class="form-control alignColum" #termoDaPesquisa
+            (keyup)="pesquisa(termoDaPesquisa.value)" placeholder="Pesquise por ofertas..." />
+          <ul class="list-group" style="position: absolute; margin-top: 19px">
+            <li class="list-group-item" *ngFor="let oferta of ofertas2">{{ oferta.titulo }}</li>
+          </ul>
         </div>
         <div class="col-md-2">
           <a a href="#"><img id="align-img" src="../assets/carrinho.png" /></a>
@@ -35,5 +36,5 @@
 </div>
 
 <div class="banner">
-  <img src="../assets/banners/img_1.jpg" />
+  <img src="../assets/banners/img_3.jpg" />
 </div>

@@ -25,8 +25,7 @@ export class HomeComponent implements OnInit {
         this.ofertas = ofertas
       }) //Executa uma ação quando a promessa for resolvida
 
-      .catch((param: any) => {
-      })
+      .catch((param: any) => console.log('Erro: ', param))
   }
 
 }
