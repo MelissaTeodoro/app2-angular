@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private ofertasService: OfertasService) { }
 
   ngOnInit() {
-    /* .then() --> Executa métodos de tratamento da realização e rejeição da promessa
+    /* .then() --> Executa métodos de tratamento da realização da promessa
      .catch() --> Adiciona um callback que trata rejeição*/
 
     this.ofertasService.getOfertas()

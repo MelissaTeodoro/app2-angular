@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'restaurantes', component: RestaurantesComponent },
   { path: 'diversao', component: DiversaoComponent },
   { path: 'oferta', component: HomeComponent },
-  { path: 'oferta/:id', component: OfertaComponent, 
+  {
+    path: 'oferta/:id', component: OfertaComponent,
     children: [
       { path: '', component: ComoUsarComponent },
       { path: 'como-usar', component: ComoUsarComponent },

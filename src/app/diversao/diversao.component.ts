@@ -6,7 +6,7 @@ import { Oferta } from '../shared/ofertas.model';
   selector: 'app-diversao',
   templateUrl: './diversao.component.html',
   styleUrls: ['./diversao.component.css'],
-  providers: [ OfertasService ]
+  providers: [OfertasService]
 })
 export class DiversaoComponent implements OnInit {
 
@@ -16,7 +16,7 @@ export class DiversaoComponent implements OnInit {
 
   ngOnInit() {
     this.ofertaService.getOfertasPorCategoria('diversao')
-    .then( (ofertas: Oferta[]) => this.ofertas = ofertas)
+      .then((ofertas: Oferta[]) => this.ofertas = ofertas)
   }
 
 }
