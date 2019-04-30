@@ -213,6 +213,20 @@
       "complemento": "Teste 4",
       "formaPagamento": "debito",
       "id": 4
+    },
+    {
+      "endereco": "Teste",
+      "numero": "1112",
+      "complemento": "Teste",
+      "formaPagamento": "dinheiro",
+      "id": 5
+    },
+    {
+      "endereco": "teste",
+      "numero": "123",
+      "complemento": "teste",
+      "formaPagamento": "dinheiro",
+      "id": 6
     }
   ]
 }
