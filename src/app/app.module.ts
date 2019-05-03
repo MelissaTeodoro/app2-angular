@@ -22,6 +22,9 @@ import { DescricaoReduzida } from './util/descricao-reduzida.pipe';
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
 
+//Serviço
+import { CarrinhoService } from './carrinho.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,8 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     //FormsModule,
     AppRoutingModule
   ],
-  providers: [ { provide: LOCALE_ID, useValue: 'pt'}],
+  //Todos os componentes terão acesso ao serviço CarrinhoService
+  providers: [ CarrinhoService, { provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
