@@ -59,6 +59,10 @@ class CarrinhoService {
             this.itens.splice(this.itens.indexOf(itemCarrinho), 1 ) //Extrai o indice indicado
         }
     }
+
+    public limparCarrinho(): void {
+        this.itens = []
+    }
 }
 
 export { CarrinhoService }

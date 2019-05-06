@@ -9,7 +9,7 @@ import { ItemCarrinho } from '../shared/item-carrinho.model';
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
-  providers: [ OrdemCompraService ]
+  providers: [OrdemCompraService]
 })
 export class OrdemCompraComponent implements OnInit {
 
@@ -24,9 +24,9 @@ export class OrdemCompraComponent implements OnInit {
   })
 
   constructor(
-    private ordemCompraService: OrdemCompraService, 
+    private ordemCompraService: OrdemCompraService,
     private carrinhoService: CarrinhoService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.itensCarrinho = this.carrinhoService.exibirItens()
@@ -36,7 +36,6 @@ export class OrdemCompraComponent implements OnInit {
   public confirmarCompra(): void {
 
     if (this.formulario.status === 'INVALID') {
-      console.log('Formulário inválido')
 
       this.formulario.get('endereco').markAsTouched()
       this.formulario.get('numero').markAsTouched()
@@ -44,19 +43,28 @@ export class OrdemCompraComponent implements OnInit {
       this.formulario.get('formaPagamento').markAsTouched()
 
     } else {
-      let pedido: Pedido = new Pedido(
 
-        this.formulario.value.endereco,
-        this.formulario.value.numero,
-        this.formulario.value.complemento,
-        this.formulario.value.formaPagamento
-      )
+      if (this.carrinhoService.exibirItens().length === 0) {
+        //Não há itens
+        alert('Você não selecionou nenhum item. Seu carrinho está vazio!')
 
-      this.ordemCompraService.efetivarCompra(pedido)
-        .subscribe((idPedido: number) => {
-          this.idPedidoCompra = idPedido
-          console.log(this.idPedidoCompra)
-        })
+      } else {
+
+        let pedido: Pedido = new Pedido(
+
+          this.formulario.value.endereco,
+          this.formulario.value.numero,
+          this.formulario.value.complemento,
+          this.formulario.value.formaPagamento,
+          this.carrinhoService.exibirItens()
+        )
+
+        this.ordemCompraService.efetivarCompra(pedido)
+          .subscribe((idPedido: number) => {
+            this.idPedidoCompra = idPedido
+            this.carrinhoService.limparCarrinho()
+          })
+      }
     }
   }
 
