@@ -49,19 +49,26 @@ class CarrinhoService {
         }*/
 
         itemCarrinho.quantidade += 1
+
     }
 
     public diminuirQuantidade(itemCarrinho: ItemCarrinho): void {
         //Decrementar a quantidade
         itemCarrinho.quantidade -= 1
 
-        if( itemCarrinho.quantidade === 0) {
-            this.itens.splice(this.itens.indexOf(itemCarrinho), 1 ) //Extrai o indice indicado
+        if (itemCarrinho.quantidade === 0) {
+            this.itens.splice(this.itens.indexOf(itemCarrinho), 1) //Extrai o indice indicado
         }
     }
 
     public limparCarrinho(): void {
         this.itens = []
+    }
+
+    public calculaQtdItemCarrinho(): number {
+        let totalItens: number = null
+        this.itens.map((item: ItemCarrinho) => totalItens += item.quantidade)
+        return totalItens
     }
 }
 

@@ -3,6 +3,7 @@ import { OfertasService } from 'src/app/ofertas.service';
 import { Observable, Subject } from 'rxjs';
 import { Oferta } from '../shared/ofertas.model';
 import '../util/rxjs-extensions';
+import { CarrinhoService } from '../carrinho.service';
 
 @Component({
   selector: 'app-topo',
@@ -15,9 +16,10 @@ export class TopoComponent implements OnInit {
   public ofertas: Observable<Oferta[]>
   public subjectPesquisa: Subject<string> = new Subject<string>()
 
-  constructor(private ofertasService: OfertasService) { }
+  constructor(private ofertasService: OfertasService, private carrinhoService: CarrinhoService) { }
 
   ngOnInit() {
+
     this.ofertas = this.subjectPesquisa //retorno Oferta[]
       .debounceTime(1000) //Executa a ação do switchmap após 1 segundo
       .distinctUntilChanged() //Não executa nova requisição caso o termo pesquisado seja o mesmo
@@ -27,9 +29,7 @@ export class TopoComponent implements OnInit {
           //Inferir um tipo com Observable.of()
           return Observable.of<Oferta[]>([])
         }
-
         return this.ofertasService.pesquisaOfertas(termo)
-
       })
 
       .catch((err: any) => {
@@ -44,4 +44,5 @@ export class TopoComponent implements OnInit {
   public limpaPesquisa(): void {
     this.subjectPesquisa.next('');
   }
+
 }
