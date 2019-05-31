@@ -23,6 +23,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "flatted": "^2.0.0",
+    "fstream": "^1.0.12",
     "intl": "^1.2.5",
     "jquery": "^3.4.0",
     "popper.js": "^1.15.0",
